@@ -72,4 +72,8 @@ function setStatus (id,status){
     }
     renderJobs();
 }
-/
+// delete function
+const job = jobs.find(jobs=> jobs.id=== id)
+jobs =jobs.filter(jobs => jobs.id!==id)
+renderJobs();
+
