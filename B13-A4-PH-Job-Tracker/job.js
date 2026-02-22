@@ -33,5 +33,31 @@ if(filtered.length=== 0){
 }
 else{
     emptyState.classList.add("hidden")
-}
+    filtered.forEach(job=>{
+        container.innerHTML += `
+        <div class="border p-4 rounded shadow-sm bg-gray-50">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold">${job.company}</h3>
+          <button onclick="deleteJob(${job.id})" class="text-red-500">Delete</button>
+        </div>
+        <p class="text-sm text-gray-600">${job.position}</p>
+        <p class="text-sm text-gray-500">${job.location} • ${job.type} • ${job.salary}</p>
+        <p class="text-sm mt-2">${job.description}</p>
+
+        <div class="flex gap-2 mt-3">
+          <button onclick="setStatus(${job.id}, 'interview')" 
+            class="px-3 py-1 rounded text-white ${job.status==='interview'?'bg-green-600':'bg-green-400'}">
+            Interview
+          </button>
+
+          <button onclick="setStatus(${job.id}, 'rejected')" 
+            class="px-3 py-1 rounded text-white ${job.status==='rejected'?'bg-red-600':'bg-red-400'}">
+            Rejected
+          </button>
+        </div>
+      </div>`
+    })
+      
+};
+
 }
