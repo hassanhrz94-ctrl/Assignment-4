@@ -18,6 +18,20 @@ function renderJobs(){
     const emptyState = document.getElementById('emptyState');
     container.innerHTML = "";
 
-    
+    let filtered = jobs.filter(job =>{
+        if(currentTab=== "all"){
+            return job.status = "all"
+        }
+        else{
+            return job.status = currentTab
+        }
+});
+document.getElementById("tabCount").innerText = filtered.length + " jobs";
 
+if(filtered.length=== 0){
+    emptyState.classList.remove ("hidden")
+}
+else{
+    emptyState.classList.add("hidden")
+}
 }
