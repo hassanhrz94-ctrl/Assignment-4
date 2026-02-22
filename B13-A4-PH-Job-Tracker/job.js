@@ -92,6 +92,12 @@ function switchTab(tab){
     btn.classList.add("bg-gray-200");
   });
 
-  
+  target.classList.add("bg-blue-600","text-white");
+
+  renderJobs();
+}
+
+// first load
+renderJobs();
 
 
