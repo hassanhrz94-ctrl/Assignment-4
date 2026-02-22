@@ -10,33 +10,31 @@ let jobs =[
   {id:6, company:"MegaCorp", position:"JS Developer", location:"LA", type:"Full-time", salary:"$125k", description:"Enterprise apps.", status:"all"},
   {id:7, company:"StartupXYZ", position:"Full Stack", location:"Remote", type:"Contract", salary:"$95k", description:"Startup product.", status:"all"},
   {id:8, company:"TechCorp", position:"Senior Frontend", location:"SF", type:"Full-time", salary:"$140k", description:"Modern SPA apps.", status:"all"}
-]
+];
 
 // main function rendering
 function renderJobs(){
-    const container = document.getElementById('jobcontainer')
+    const container = document.getElementById('jobContainer')
     const emptyState = document.getElementById('emptyState');
     container.innerHTML = "";
 
     let filtered = jobs.filter(job =>{
         if(currentTab=== "all"){
-            return job.status = "all"
+            return job.status === "all"
         }
         else{
-            return job.status = currentTab
+            return job.status === currentTab
         }
 });
 document.getElementById("tabCount").innerText = filtered.length + " jobs";
+ if(filtered.length === 0){
+    emptyState.classList.remove("hidden");
+  } else {
+    emptyState.classList.add("hidden");
 
-if(filtered.length=== 0){
-    emptyState.classList.remove ("hidden")
-}
-// inner HTml add
-else{
-    emptyState.classList.add("hidden")
-    filtered.forEach(job=>{
-        container.innerHTML += `
-        <div class="border p-4 rounded shadow-sm bg-gray-50">
+    filtered.forEach(job => {
+      container.innerHTML += `
+      <div class=" p-4 rounded shadow-sm bg-gray-50">
         <div class="flex justify-between items-center">
           <h3 class="font-bold">${job.company}</h3>
           <button onclick="deleteJob(${job.id})" class="text-red-500">Delete</button>
@@ -56,9 +54,10 @@ else{
             Rejected
           </button>
         </div>
-      </div>`
-    })
-};
+      </div>
+      `;
+    });
+  }
  updateDashboard();
 }
 // status change functon
@@ -73,7 +72,17 @@ function setStatus (id,status){
     renderJobs();
 }
 // delete function
-const job = jobs.find(jobs=> jobs.id=== id)
-jobs =jobs.filter(jobs => jobs.id!==id)
-renderJobs();
+function deleteJob(id){
+  jobs = jobs.filter(job => job.id !== id);
+  renderJobs();
+}
+
+// update dashboard
+function updateDashboard(){
+    document.getElementById("totalCount").innerText = jobs.length;
+    document.getElementById("interviewCount").innerText = jobs.filter(jobs=>jobs.status=== "interview").length
+    document.getElementById("rejectedCount").innerText = jobs.filter(jobs=>jobs.status=== "rejected").length
+}
+
+
 
