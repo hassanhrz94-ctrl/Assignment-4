@@ -83,6 +83,15 @@ function updateDashboard(){
     document.getElementById("interviewCount").innerText = jobs.filter(jobs=>jobs.status=== "interview").length
     document.getElementById("rejectedCount").innerText = jobs.filter(jobs=>jobs.status=== "rejected").length
 }
+// tab switch
+function switchTab(tab){
+  currentTab = tab;
 
+  document.querySelectorAll(".tabBtn").forEach(btn=>{
+    btn.classList.remove("bg-blue-600","text-white");
+    btn.classList.add("bg-gray-200");
+  });
+
+  
 
 
