@@ -31,6 +31,7 @@ document.getElementById("tabCount").innerText = filtered.length + " jobs";
 if(filtered.length=== 0){
     emptyState.classList.remove ("hidden")
 }
+// inner HTml add
 else{
     emptyState.classList.add("hidden")
     filtered.forEach(job=>{
@@ -57,7 +58,18 @@ else{
         </div>
       </div>`
     })
-      
 };
-
+ updateDashboard();
 }
+// status change functon
+function setStatus (id,status){
+    const job = jobs.find(jobs=>jobs.id===id)
+    if(job.status=== status){
+        job.status = "all"
+    }
+    else{
+        job.status =status;
+    }
+    renderJobs();
+}
+/
