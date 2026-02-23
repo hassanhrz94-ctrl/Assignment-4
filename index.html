@@ -6,6 +6,8 @@
     <title>Job Application</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
    
 </style>
@@ -42,8 +44,8 @@
     <!-- Tabs -->
     <div class="flex gap-2 mb-4">
       <button onclick="switchTab('all')" class="tabBtn bg-blue-600 text-white px-3 py-1 rounded">All</button>
-      <button onclick="switchTab('interview')" class="tabBtn bg-purple-200 px-3 py-1 rounded">Interview</button>
-      <button onclick="switchTab('rejected')" class="tabBtn  bg--200 px-3 py-1 rounded">Rejected</button>
+      <button onclick="switchTab('interview')" class="tabBtn bg-gray-200 px-3 py-1 rounded">Interview</button>
+      <button onclick="switchTab('rejected')" class="tabBtn  bg-gray-200 px-3 py-1 rounded">Rejected</button>
     </div>
 
     <!-- Jobs Container -->
@@ -51,7 +53,7 @@
 
     <!-- Empty State -->
     <div id="emptyState" class="hidden text-center py-10">
-      <img src="j" 
+      <img src="job-loss.png" 
            class="w-16 mx-auto mb-4 opacity-70">
       <h3 class="text-lg font-semibold">No jobs available</h3>
       <p class="text-gray-500">Check back soon for new opportunities</p>

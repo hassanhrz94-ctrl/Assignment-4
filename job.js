@@ -38,10 +38,10 @@ function renderJobs(){
 
     filtered.forEach(job => {
       container.innerHTML += `
-        <div class="border p-4 rounded shadow-sm bg-gray-50">
+        <div class=" p-4 rounded shadow-sm bg-gray-50">
           <div class="flex justify-between items-center">
             <h3 class="font-bold">${job.company}</h3>
-            <button onclick="deleteJob(${job.id})" class="text-red-500">Delete</button>
+            <button onclick="deleteJob(${job.id})" class="text-red-500"><i class="fa-solid fa-trash-can"></i></button>
           </div>
 
           <p class="text-sm text-gray-600">${job.position}</p>
